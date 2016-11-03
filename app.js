@@ -4,13 +4,13 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
 var index = require('./routes/index');
 //var users = require('./routes/users');
 var expressHbs = require('express-handlebars');
+var mongoose = require('mongoose');
 
 var app = express();
-
+mongoose.connect('localhost:27017/shopping');
 // view engine setup
 app.engine('.hbs', expressHbs({
     defaultLayout: 'layout',
