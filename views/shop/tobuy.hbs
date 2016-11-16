@@ -1,0 +1,60 @@
+<html>
+<head>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script>// <![CDATA[
+$(document).ready(function(){
+    var from,to,subject,text;
+    $("#send_email").click(function(){     
+        listgroup=$("#list-group").val();
+       
+        $.get("http://localhost:3000/send",{listgroup:list-group},function(data){
+        if(data=="sent")
+        {
+            $("#message").empty().html("
+
+Email is been sent at "+to+" . Please check inbox !
+
+");
+        }
+
+});
+    });
+});
+</script>
+</head>
+<body>
+<div id="container">
+ <h4>Your Total:Tk{{total}}</h4>
+{{# if products }}
+<div class="row">
+    <div class="col-sm-6 col-md-offset-3 col-sm-offset-3">
+        <ul class="list-group" name="listgroup" id="listgroup">
+            {{# each products}}
+                 <li class="list-group-item">
+                <span class="badge">{{this.qty}}</span>
+                <strong>{{this.item.title}}</strong>
+                <span class="label label-success">{{this.price}}</span>
+        
+            
+            </li>       
+            
+            {{/each}}
+            <hr>
+               <button id="send_email">Send the cart to email</button>
+    <div id="message"></div> 
+        </ul>
+    </div>
+  
+</div>
+
+    <div id="charge-error" class="alert alert-danger {{#if noError}}hidden{{/if}}">
+            {{errMsg}}
+        
+        </div>
+
+
+
+{{/if}}
+    
+</div>
+</body>
