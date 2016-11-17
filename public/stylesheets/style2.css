@@ -529,7 +529,7 @@ ul.multi-column-dropdown h6 {
 a.twitter {
 	width: 25px;
 	height: 25px;
-	background: url(../images/follow.png) no-repeat 0px 0px;
+	background: url(../images/logo/follow.png) no-repeat 0px 0px;
 	display: inline-block;
 	margin:0 1em;
 	  vertical-align: text-bottom;
@@ -537,7 +537,7 @@ a.twitter {
 a.gmail {
 	width: 40px;
 	height: 27px;
-	background: url(../images/follow-gmail.png) no-repeat 0px 0px;
+	background: url(../images/logo/follow-gmail.png) no-repeat 0px 0px;
 	display: inline-block;
 	margin:0 1em;
 	  vertical-align: text-bottom;

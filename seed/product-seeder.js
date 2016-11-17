@@ -6,32 +6,32 @@ mongoose.connect('localhost:27017/shopping');
 var products = [
 
     new Product({
-        imagePath: '../../../images/product/cap-1.jpg',
+        imagePath: '../../../images/product/MAN/adidas-originals-trefoil-t-shi.jpg',
         title: 'Cap',
         description: 'Awesome!!!!!!!',
         price: 10
     }),
 
       new Product({
-        imagePath: '../../../images/product/cap-1.jpg',
+        imagePath: '../../../images/product/MAN/adidas-originals-trefoil-t-shi.jpg',
         title: 'Cap',
         description: 'Awesome!!!!!!!',
         price: 10
     }),
       new Product({
-        imagePath: '../../../images/product/cap-1.jpg',
+        imagePath: '../../../images/product/MAN/adidas-originals-trefoil-t-shi.jpg',
         title: 'Cap',
         description: 'i died!!!!!!!',
         price: 10
     }),
          new Product({
-        imagePath: '../../../images/product/cap-1.jpg',
+        imagePath: '../../../images/product/MAN/adidas-originals-trefoil-t-shi.jpg',
         title: 'Cap',
         description: 'Awesome!!!!!!!',
         price: 10
     }),
       new Product({
-        imagePath: '../../../images/product/cap-1.jpg',
+        imagePath: '../../../images/product/MAN/adidas-originals-trefoil-t-shi.jpg',
         title: 'Cap',
         description: 'i died!!!!!!!',
         price: 10

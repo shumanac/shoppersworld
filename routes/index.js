@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Cart = require('../models/cart');
-var nodemailer = require("nodemailer");
+//var nodemailer = require("nodemailer");
 
 var Product = require('../models/product');
 var Order = require('../models/order');
@@ -10,18 +10,22 @@ var Order = require('../models/order');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
+ 
     var successMsg = req.flash('success')[0];
 Product.find(function (err, docs) {
+        console.log(docs);
     var productChunks = [];
     var chunkSize = 3;
     for (var i = 0; i < docs.length; i += chunkSize){
         productChunks.push(docs.slice(i, i + chunkSize));
     }
     
+    
     res.render('shop/index', {
         title: 'Shopping Cart',
         products: productChunks, successMsg: successMsg, noMessages: !successMsg
     });
+    console.log(productChunks);
 });
 
 });
@@ -63,47 +67,47 @@ router.get('/tobuy', function(req, res, next){
 
 
 
-
-router.get('/send',function(req,res){
-var smtpTransport = nodemailer.createTransport("SMTP",{
-    service: "Gmail",
-    auth: {
-        user: user,
-        pass: password
-    }
-});
-//    smtpTransport.sendMail({
-//        from: user,
-//        to: 'shumana.chowdhury186@gmail.com',
-//        subject: 'test',
-//        html: '<div style="text-align"center;background:blue; color:white">'
-//    });
-//    res.redirect('/');
+//
+//router.get('/send',function(req,res){
+//var smtpTransport = nodemailer.createTransport("SMTP",{
+//    service: "Gmail",
+//    auth: {
+//        user: user,
+//        pass: password
+//    }
+//});
+////    smtpTransport.sendMail({
+////        from: user,
+////        to: 'shumana.chowdhury186@gmail.com',
+////        subject: 'test',
+////        html: '<div style="text-align"center;background:blue; color:white">'
+////    });
+////    res.redirect('/');
+////    
+//    var mailOptions={
+//   to : req.query.to,
+//   subject : req.query.subject,
+//   text : req.query.text
+//}
+//console.log(mailOptions);
+//smtpTransport.sendMail(mailOptions, function(error, response){
+//if(error){
+//console.log(error);
+//res.end("error");
+//}else{
+//console.log("Message sent: " + response.message);
+//req.flash('success', "Successfully bought product");
+////res.end("sent");
+//}
+//});
 //    
-    var mailOptions={
-   to : req.query.to,
-   subject : req.query.subject,
-   text : req.query.text
-}
-console.log(mailOptions);
-smtpTransport.sendMail(mailOptions, function(error, response){
-if(error){
-console.log(error);
-res.end("error");
-}else{
-console.log("Message sent: " + response.message);
-req.flash('success', "Successfully bought product");
-//res.end("sent");
-}
-});
-    
-    var order = new Order({
-        user: req.user,
-        cart: cart,
-        message: req.body.message
-    })
-    
-});
+//    var order = new Order({
+//        user: req.user,
+//        cart: cart,
+//        message: req.body.message
+//    })
+//    
+//});
 module.exports = router;
 
 //router.get('/checkout', function(req, res, next){
