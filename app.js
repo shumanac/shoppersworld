@@ -1,3 +1,6 @@
+
+process.env.NODE_ENV = 'production';
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -15,6 +18,7 @@ var nodemailer = require("nodemailer");
 
 var routes = require('./routes/index');
 var userRoutes = require('./routes/user');
+
 
 var app = express();
 mongoose.connect('localhost:27017/shopping');
