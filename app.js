@@ -1,5 +1,4 @@
 
-process.env.NODE_ENV = 'production';
 
 var express = require('express');
 var path = require('path');
@@ -21,9 +20,24 @@ var userRoutes = require('./routes/user');
 
 
 var app = express();
-mongoose.connect('http://mongo.fwd.wf/shopping');
+
 require('./config/passport');
 // view engine setup
+
+//
+//var mongoose = require( 'mongoose' );
+var dbURI = 'mongodb://localhost:27017/shopping';
+if (process.env.NODE_ENV === 'production') {
+    dbURI= process.env.MONGOLAB_URI;
+}
+mongoose.connect(dbURI);
+
+
+
+
+
+
+
 app.engine('.hbs', expressHbs({
     defaultLayout: 'layout',
     extname: '.hbs'
