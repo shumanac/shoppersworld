@@ -1,0 +1,7 @@
+{
+"name": "Shoppersworld",
+"description": "An application for making business easier",
+"repository": "https://github.com/shumanac/shoppersworld.git",
+"keywords": ["node","express","dynamic"],
+"image": "heroku/nodejs"
+}

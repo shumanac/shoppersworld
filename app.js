@@ -1,3 +1,9 @@
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
+var config = require('./config/config');
+//var express = require('./config/express');
+//var mongoose = require('./config/mongoose');
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -12,12 +18,13 @@ var flash = require('connect-flash');
 var validator = require('express-validator');
 var MongoStore = require('connect-mongo')(session);
 var nodemailer = require("nodemailer");
+var port = process.env.PORT || 3000;
 
 var routes = require('./routes/index');
 var userRoutes = require('./routes/user');
 
 var app = express();
-mongoose.connect('localhost:27017/shopping');
+//mongoose.connect('localhost:27017/shopping');
 require('./config/passport');
 // view engine setup
 app.engine('.hbs', expressHbs({
@@ -74,6 +81,10 @@ app.use(function (err, req, res, next) {
     // render the error page
     res.status(err.status || 500);
     res.render('error');
+});
+
+app.listen(port, function() {
+    console.log('Our app is running on http://localhost:' + port);
 });
 
 module.exports = app;
