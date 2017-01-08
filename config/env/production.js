@@ -1,6 +1,4 @@
 module.exports = {
     port: process.env.PORT,
-    db: 'mongodb://tanjilhuda@gmail.com:tanjilhudasany1992@ds115798.mlab.com:15798/shoppersworld'
-    
-   
+    db: 'mongodb://heroku_jb2vkp2x:unanpb4k5sutkvb7ougqdqn798@ds157288.mlab.com:57288/heroku_jb2vkp2x'
 };
