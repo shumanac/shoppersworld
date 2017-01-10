@@ -93,7 +93,7 @@ app.listen(port, function() {
 
 
 
-
+console.log("the environment "+process.env.MONGODB_URI)
 if (process.env.NODE_ENV == 'development') {
 var dbURI="mongodb://localhost:27017/shopping";
 } else {
