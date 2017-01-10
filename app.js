@@ -95,9 +95,10 @@ app.listen(port, function() {
 
 //
 //var mongoose = require( 'mongoose' );
+console.log("the environment "+ process.env.NODE_ENV);
 var dbURI="mongodb://heroku_jb2vkp2x:unanpb4k5sutkvb7ougqdqn798@ds157288.mlab.com:57288/heroku_jb2vkp2x";
 // = 'mongodb://localhost:27017/shopping';
-//if (process.env.NODE_ENV === 'production') {
+//if (process.env.NODE_ENV == 'production') {
 // dbURI= process.env.MONGOLAB_URI;
 //}
 mongoose.connect(dbURI);
