@@ -96,10 +96,12 @@ app.listen(port, function() {
 
 //
 //var mongoose = require( 'mongoose' );
-var dbURI = 'mongodb://localhost:27017/shopping';
-if (process.env.NODE_ENV === 'production') {
-    dbURI= process.env.MONGOLAB_URI;
-}
+// var dbURI = 'mongodb://localhost:27017/shopping';
+var dbURI;
+dbURI= process.env.MONGOLAB_URI;
+// if (process.env.NODE_ENV === 'production') {
+//     dbURI= process.env.MONGOLAB_URI;
+// }
 mongoose.connect(dbURI);
 
 
