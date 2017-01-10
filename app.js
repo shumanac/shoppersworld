@@ -3,7 +3,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 var config = require('./config/config');
 //var express = require('./config/express');
-//var mongoose = require('./config/mongoose');
+require('./config/mongoose');
 
 var express = require('express');
 var path = require('path');
@@ -25,7 +25,6 @@ var routes = require('./routes/index');
 var userRoutes = require('./routes/user');
 
 var app = express();
-//mongoose.connect('localhost:27017/shopping');
 require('./config/passport');
 // view engine setup
 app.engine('.hbs', expressHbs({
@@ -96,12 +95,11 @@ app.listen(port, function() {
 
 //
 //var mongoose = require( 'mongoose' );
-// var dbURI = 'mongodb://localhost:27017/shopping';
-var dbURI;
-dbURI= process.env.MONGOLAB_URI;
-// if (process.env.NODE_ENV === 'production') {
-//     dbURI= process.env.MONGOLAB_URI;
-// }
+var dbURI="mongodb://heroku_jb2vkp2x:unanpb4k5sutkvb7ougqdqn798@ds157288.mlab.com:57288/heroku_jb2vkp2x";
+// = 'mongodb://localhost:27017/shopping';
+//if (process.env.NODE_ENV === 'production') {
+// dbURI= process.env.MONGOLAB_URI;
+//}
 mongoose.connect(dbURI);
 
 
