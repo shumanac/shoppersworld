@@ -93,11 +93,11 @@ app.listen(port, function() {
 
 
 
-console.log("the environment "+process.env.MONGODB_URI)
+
 if (process.env.NODE_ENV == 'development') {
 var dbURI="mongodb://localhost:27017/shopping";
 } else {
-    dbURI="mongodb://heroku_jb2vkp2x:unanpb4k5sutkvb7ougqdqn798@ds157288.mlab.com:57288/heroku_jb2vkp2x";
+    dbURI=process.env.MONGODB_URI;
 }
 mongoose.connect(dbURI);
 
